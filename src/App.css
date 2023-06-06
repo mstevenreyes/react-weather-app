@@ -1,0 +1,72 @@
+#root {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+::selection{
+  color: rgba(255, 255, 255, 0.594);
+  background-color: rgba(16, 63, 103, 0.693);
+}
+
+.search-bar {
+  /* From https://css.glass */
+  background: rgba(156, 156, 156, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(156, 156, 156, 0.3);
+}
+
+.search-bar:focus, .search-bar:hover{
+  background: rgba(156, 156, 156, 0.3);
+}
+
+.search-bar input{
+  width: 100%;
+  margin-left: 5px;
+  border-end-end-radius: 20px;
+  border-start-end-radius: 20px;
+  background-color: rgba(156, 156, 156, 0.0);
+}
+.search-bar input:focus{
+  outline: none;
+}
+
+.forecast-card {
+  margin: 5px 5px
+}
+
+/* SM sizes */
+
+@media only screen and (min-width:640px) {
+  #root {
+    width: 70%;
+  }
+}
+
+/* MD sizes */
+
+@media only screen and (min-width:768px) {
+  
+}
+
+/* Lg sizes */
+
+@media only screen and (min-width:1024px) {
+  
+}
+
+/* XL sizes */
+
+@media only screen and (min-width:1280px) {
+  
+}
+
+/* 2xl sizes */
+
+@media only screen and (min-width:1536px) {
+  
+}
