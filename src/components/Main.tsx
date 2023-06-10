@@ -45,7 +45,7 @@ export default function Main() {
 
     const weatherLogo = (weather : string) => {
         const weatherLogo = weather == "Partly cloudy" ? cloudy
-        : weather == "Light rain" ? lightRainy
+        : (weather == "Light rain" || weather == "Moderate rain" ) ? lightRainy
         : weather == "Clear" ? sunny
         : weather == "Overcast" ? overcast
         : weather == "Moderate or heavy rain with thunder" ? thunder
