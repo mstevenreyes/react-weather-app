@@ -3,7 +3,8 @@ import { useState, useEffect } from "react"
 import sunny from "../assets/weather-icons/animated/day.svg"
 import cloudy from "../assets/weather-icons/animated/cloudy.svg"
 import lightRainy from "../assets/weather-icons/animated/rainy-3.svg"
-import moment from 'moment';
+import searchIcon from "../assets/search-icon.svg"
+// import moment from 'moment';
 
 
 export default function Main() {
@@ -46,7 +47,7 @@ export default function Main() {
             <main className="w-full flex h-full justify-center">
                 <div className="flex w-full flex-col items-center">
                     <div className="search-bar flex items-center h-10 w-9/12 xl:w-5/12 rounded-3xl  active:outline-none outline-none text-white text-xl text-green-950 mb-5 duration-300">
-                        <img className="w-7 ml-2" src="./src/assets/search-icon.svg" alt="" />
+                        <img className="w-7 ml-2" src={searchIcon} alt="" />
                         <input className="text-lg" placeholder="Search.." type="text" value={input} onChange={(e) => setInput(e.target.value)} />
                     </div>
                     <div className="search-button-container">
@@ -72,7 +73,7 @@ export default function Main() {
                                 <p className="text-xl mt-2">{weatherData[0].current.condition.text}</p>
                             </div>
                         
-                            <div className="forecast-container flex mt-24 flex-wrap justify-center">
+                            {/* <div className="forecast-container flex mt-24 flex-wrap justify-center">
 
                                 {weatherData[0].forecast.forecastday.map((forecast : any) => (
                                         <>
@@ -86,7 +87,7 @@ export default function Main() {
                                         </>
                                     ))}
                                 
-                            </div>
+                            </div> */}
                         </>
                     }
                 </div>
