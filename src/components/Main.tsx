@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 // import { getWeatherData } from "./Api"
 import sunny from "../assets/weather-icons/animated/day.svg"
 import cloudy from "../assets/weather-icons/animated/cloudy.svg"
+import thunder from "../assets/weather-icons/animated/thunder.svg"
+import overcast from "../assets/weather-icons/animated/cloudy-day-1.svg"
 import lightRainy from "../assets/weather-icons/animated/rainy-3.svg"
 import searchIcon from "../assets/search-icon.svg"
 import moment from 'moment';
@@ -45,6 +47,8 @@ export default function Main() {
         const weatherLogo = weather == "Partly cloudy" ? cloudy
         : weather == "Light rain" ? lightRainy
         : weather == "Clear" ? sunny
+        : weather == "Overcast" ? overcast
+        : weather == "Moderate or heavy rain with thunder" ? thunder
         : sunny
         return weatherLogo
     }
