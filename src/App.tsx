@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {Header, Main, Footer} from "./components/index";
 import './App.css'
 

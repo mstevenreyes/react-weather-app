@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
-import fetchWeatherData from "./Api"
+// import fetchWeatherData from "./Api"
+import sunny from "../assets/weather-icons/animated/day.svg"
+import cloudy from "../assets/weather-icons/animated/cloudy.svg"
+import lightRainy from "../assets/weather-icons/animated/rainy-3.svg"
 import moment from 'moment';
 
 
 export default function Main() {
     const [input, setInput] = useState("")
-    const [weatherData, setWeatherData] = useState([]);
+    const [weatherData, setWeatherData] =  useState<any[]>([]);
     const getWeatherData = (input: string) => {
 
         const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${input}&days=3`;
@@ -26,6 +29,7 @@ export default function Main() {
                 const arr : any = [data]
                 setWeatherData(arr)
             });
+            return response
         } catch (error) {
             console.error(error);
         }
@@ -57,10 +61,10 @@ export default function Main() {
                                 <p className="text-4xl">{weatherData[0].location.name + ", " + weatherData[0].location.country}</p>
                                 <div id="weather-icon-center-container" className="flex justify-center w-24 mx-auto mt-5">
                                 <img className="w-24" src={ 
-                                    weatherData[0].current.condition.text == "Partly cloudy" ? "./src/assets/weather-icons/animated/cloudy.svg" 
-                                    : weatherData[0].current.condition.text == "Light rain" ? "./src/assets/weather-icons/animated/rainy-3.svg"
-                                    : weatherData[0].current.condition.text == "Clear" ? "./src/assets/weather-icons/animated/day.svg"  
-                                    : "./src/assets/weather-icons/animated/day.svg"} alt="weather"/>
+                                    weatherData[0].current.condition.text == "Partly cloudy" ? cloudy
+                                    : weatherData[0].current.condition.text == "Light rain" ? lightRainy
+                                    : weatherData[0].current.condition.text == "Clear" ? sunny
+                                    : sunny} alt="weather"/>
                                     
                                     
                                 </div>
@@ -70,7 +74,7 @@ export default function Main() {
                         
                             <div className="forecast-container flex mt-24 flex-wrap justify-center">
 
-                                {weatherData[0].forecast.forecastday.map((forecast : array) => (
+                                {weatherData[0].forecast.forecastday.map((forecast : any) => (
                                         <>
                                             <div className="forecast-card">
                                                 <p>{ forecast.date ? moment(forecast.date).format('ddd') : "OHH" }</p>
