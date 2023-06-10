@@ -2,10 +2,10 @@
   width: 90%;
   max-width: 1280px;
   margin: 0 auto;
-  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 ::selection{
@@ -38,19 +38,14 @@
   outline: none;
 }
 
-.forecast-card {
-  margin: 5px 5px
-}
-
 /* Forecast card */
 
 .forecast-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 150px;
+  width: 70px;
   height: 150px;
-  padding: 2rem;
   margin: 0px 10px;
   /* background-color: rgba(60, 114, 161, 0.693); */
 }
@@ -72,7 +67,10 @@
 /* Lg sizes */
 
 @media only screen and (min-width:1024px) {
-  
+  .forecast-card {
+    padding: 2rem;
+    width: 150px;
+  }
 }
 
 /* XL sizes */
