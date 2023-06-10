@@ -1,5 +1,5 @@
-const queryWeather = async (cityCountry: string) => {
-    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityCountry}&days=5`;
+const fetchWeatherData = async (cityCountry: string) => {
+    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityCountry}&days=3`;
     const options = {
         method: 'GET',
         headers: {
@@ -9,12 +9,18 @@ const queryWeather = async (cityCountry: string) => {
     };
 
     try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(JSON.parse(result));
+        const response = await fetch(url, options)
+        .then(function(response){
+            return response.text()
+        })
+        .then(function(data) {
+            const result = JSON.parse(data)
+            return result
+        });
+        return response
     } catch (error) {
         console.error(error);
     }
 }
 
-export default queryWeather;
+export default fetchWeatherData;
