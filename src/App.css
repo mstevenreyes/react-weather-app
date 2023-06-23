@@ -1,87 +1,140 @@
+body {
+  backdrop-filter: blur(5px) ;
+  text-shadow: .05rem 1px rgba(0, 0, 0, 0.594);
+  height: 100%;
+}
 #root {
-  width: 90%;
-  max-width: 1280px;
+  position: relative;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: white;
+  background-image: url("./assets/night-sky-clear.jpg"); 
+  background-size:cover;
+  background-attachment:scroll;
+
 }
 
 ::selection{
-  color: rgba(255, 255, 255, 0.594);
-  background-color: rgba(16, 63, 103, 0.693);
+  background-color: rgba(163, 164, 165, 0.359);
 }
 
-.search-bar {
-  /* From https://css.glass */
-  background: rgba(156, 156, 156, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(156, 156, 156, 0.3);
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.search-bar:focus, .search-bar:hover{
-  background: rgba(156, 156, 156, 0.3);
-}
 
 .search-bar input{
   width: 100%;
   margin-left: 5px;
-  border-end-end-radius: 20px;
-  border-start-end-radius: 20px;
-  background-color: rgba(156, 156, 156, 0.0);
+  color:white;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.523);
+  background: transparent;
+  transition-duration: .2s;
 }
+
 .search-bar input:focus{
   outline: none;
 }
+.search-bar input:hover{
+  border-bottom: 1px solid rgba(203, 203, 203, 0.382)
+}
+
+.search-button {
+  padding: 5px;
+  background-color: rgba(132, 132, 132, 0.155);
+  border-radius: 50%;
+  transition-duration: .1s;
+}
+
+.search-button:hover {
+  background-color: rgba(101, 101, 101, 0.155);
+}
+
+.mobile-search-bar {
+  border-radius: 50px;
+  padding: .1rem .1rem;
+  background: rgba(135, 134, 134, 0.038);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.227);
+  backdrop-filter: saturate(180%) blur(20px) contrast(100%) opacity(50%);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+.right-section-container {
+  background: rgba(0, 0, 0, 0.201);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.276);
+  backdrop-filter: saturate(180%) blur(20px) contrast(100%);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  margin-top: 2rem;
+  height: 100%;
+}
 
 /* Forecast card */
-
 .forecast-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 70px;
+  padding: 5px 15px;
+  flex-direction: row;
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(150, 149, 149, 0.157);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.157);
+  backdrop-filter: saturate(180%) blur(20px) contrast(100%);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  transition: all .4s ease-in-out;
+  
+}
+
+.forecast-data {
+  height: 0px;
+  transition: all .5s ease;
+}
+
+.forecast-data.active {
   height: 150px;
-  margin: 0px 10px;
-  /* background-color: rgba(60, 114, 161, 0.693); */
 }
 
 /* SM sizes */ 
-
 @media only screen and (min-width:640px) {
-  #root {
-    width: 70%;
-  }
+
 }
 
 /* MD sizes */
-
 @media only screen and (min-width:768px) {
   
 }
 
 /* Lg sizes */
-
 @media only screen and (min-width:1024px) {
-  .forecast-card {
-    padding: 2rem;
-    width: 150px;
+  .search-bar input {
+    background: rgba(162, 162, 162, 0.0);
+  }
+  .right-section-container {
+    position: fixed;
+    width: 42%;
+    padding: 50px 10px 0px 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-top: 0;
   }
 }
 
 /* XL sizes */
-
 @media only screen and (min-width:1280px) {
+  .right-section-container {
+    width: 30%;
+  }
   
 }
 
 /* 2xl sizes */
-
 @media only screen and (min-width:1536px) {
   
 }
