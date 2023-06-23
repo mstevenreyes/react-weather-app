@@ -94,7 +94,7 @@ const SearchBar = ( { weatherDataHandler }: any) => {
             { suggestions.length > 0 &&
             <ul className="suggestions-box fixed mt-10 text-left cursor-default">
                 {suggestions.map( (suggestion: any) => (
-                    <li className="suggestions-box-item" key={suggestion.id} onClick={(e) => {getWeatherData(`${suggestion.name}, ${suggestion.country}`)}}>
+                    <li className="suggestions-box-item" key={suggestion.id} onClick={() => {getWeatherData(`${suggestion.name}, ${suggestion.country}`)}}>
                         <span className="block pl-3">{`${suggestion.name}, ${suggestion.country}`}</span>
                     </li>
                 )
