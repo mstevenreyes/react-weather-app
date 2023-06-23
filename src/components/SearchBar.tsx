@@ -57,7 +57,6 @@ const SearchBar = ( { weatherDataHandler }: any) => {
                 return response.json()
             })
             .then(data => {
-                const arr : any = [data]
                 getSuggestions(data)
             })
             .catch(() => {
