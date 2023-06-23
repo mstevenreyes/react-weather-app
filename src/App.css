@@ -65,6 +65,20 @@ a {
   -webkit-backdrop-filter: saturate(180%) blur(10px);
 }
 
+.suggestions-box {
+  background: rgba(31, 31, 31, 0.649);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.276);
+}
+
+.suggestions-box-item {
+  transition-duration: .2s;
+}
+
+.suggestions-box-item:hover {
+  background: rgba(92, 92, 92, 0.69);
+}
+
 .right-section-container {
   background: rgba(0, 0, 0, 0.201);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.276);
@@ -123,6 +137,9 @@ a {
     bottom: 0;
     margin-left: auto;
     margin-top: 0;
+  }
+  .suggestions-box {
+    width: 68%;
   }
 }
 

@@ -9,12 +9,10 @@ import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-he
 import moment from 'moment';
 
 export default function Main() {
-    const [weatherData, setWeatherData] =  useState<any[]>([]);
-    const getWeatherDataFromComponent = (weatherApiData : any) => {
+    const [weatherData, setWeatherData] =  useState<any[]>([])
+    const weatherDataHandler = (weatherApiData : any) => {
         setWeatherData(weatherApiData)
     }
-   
-
     const weatherLogo = (weather : string) => {
         const weatherLogo = weather == "Partly cloudy" ? cloudy
         : (weather == "Light rain" || weather == "Moderate rain" || weather == "Patchy rain possible" ) ? lightRainy
@@ -33,7 +31,9 @@ export default function Main() {
                 {/* left section container */}
                 <section className="left-container flex flex-col order-1 lg:order-2 items-center lg:items-start lg:justify-start lg:ml-36">
                     <div className="mobile-search-bar block w-7/12 lg:w-full lg:hidden">
-                        <SearchBar getWeatherDataFromComponent={ getWeatherDataFromComponent }/>
+                        <SearchBar 
+                            weatherDataHandler={weatherDataHandler}
+                        />
                     </div>
                     {/* Container for left side details */}
                     { (weatherData.length > 0) &&
@@ -42,6 +42,7 @@ export default function Main() {
                             {/* Container city, name and weather text */}
                             <div className="xl:flex xl:flex-col text-center lg:text-start lg:mt-auto">
                                 <p className="text-3xl lg:text-6xl xl:ml-5">{weatherData[0].location.name }</p>
+                                <p className="text-base lg:text-base xl:ml-5">{weatherData[0].location.country }</p>
                                 <span className="text-sm xl:text-base hidden lg:block whitespace-nowrap xl:ml-5 xl:mb-3">{weatherData[0].current.last_updated  ? moment(weatherData[0].current.last_updated.date).format('HH:mm - dddd, D MMM \'YY') : "OHH" }</span>
                             </div>
                             {/* Weather Logo */}
@@ -56,7 +57,9 @@ export default function Main() {
                 {/* Right Section container */}
                 <section className="right-section-container order-2 lg:order-1  xl:h-full">
                     <div className="hidden lg:block">
-                        <SearchBar getWeatherDataFromComponent={ getWeatherDataFromComponent }/>
+                        <SearchBar 
+                            weatherDataHandler = {weatherDataHandler}
+                        />
                     </div>
                     <div className="forecast-container tracking-wide mt-12 lg:mt-24 w-10/12 lg:w-9/12 mx-auto">
                         {weatherData.length > 0 &&
