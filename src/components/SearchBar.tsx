@@ -80,7 +80,7 @@ const SearchBar = ( { weatherDataHandler }: any) => {
     } 
 
     return (
-        <div className="flex w-full flex-col items-center">
+        <div className="flex w-full flex-col items-center z-10">
             <div className="search-bar flex items-center h-10 w-11/12 lg:w-9/12 xl:w-12/12 px-2 active:outline-none outline-none text-white text-xl duration-300">
                 <input required className="text-lg placeholder-white px-1" placeholder="Search.." type="text" value={input} onChange={(e) => {
                     setInput(e.target.value) 
@@ -91,10 +91,10 @@ const SearchBar = ( { weatherDataHandler }: any) => {
                 }}  ><img src={searchIcon} alt="" /></button>
             </div>
             { suggestions.length > 0 &&
-            <ul className="suggestions-box fixed mt-10 text-left cursor-default">
+            <ul className="suggestions-box fixed z-10 mt-10 text-left cursor-default">
                 {suggestions.map( (suggestion: any) => (
                     <li className="suggestions-box-item" key={suggestion.id} onClick={() => {getWeatherData(`${suggestion.name}, ${suggestion.country}`)}}>
-                        <span className="block pl-3">{`${suggestion.name}, ${suggestion.country}`}</span>
+                        <span className="block px-3">{`${suggestion.name}, ${suggestion.country}`}</span>
                     </li>
                 )
                 )}

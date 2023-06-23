@@ -8,6 +8,7 @@ body {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  z-index: -11;
   display: flex;
   flex-direction: column;
   background-image: url("./assets/night-sky-clear.jpg"); 
@@ -66,9 +67,15 @@ a {
 }
 
 .suggestions-box {
-  background: rgba(31, 31, 31, 0.649);
+  background: rgba(31, 31, 31, 0.792);
   border-radius: 5px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.276);
+  width: 90%;
+  z-index: 10;
+}
+.card {
+  position: relative;
+  z-index: -1;
 }
 
 .suggestions-box-item {
