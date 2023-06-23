@@ -60,7 +60,7 @@ const SearchBar = ( { weatherDataHandler }: any) => {
                 const arr : any = [data]
                 getSuggestions(data)
             })
-            .catch(err => {
+            .catch(() => {
                 // console.log(err.message)
             })
 
