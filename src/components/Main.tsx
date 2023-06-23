@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import SearchBar from "./SearchBar"
 import sunny from "../assets/weather-icons/animated/day.svg"
 import cloudy from "../assets/weather-icons/animated/cloudy.svg"
